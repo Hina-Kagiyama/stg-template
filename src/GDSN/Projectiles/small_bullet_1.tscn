@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkvv0s0wg7j71"]
+
+[ext_resource type="Script" path="res://Scripts/Projectiles/SmallBullet1.cs" id="1_haiem"]
+
+[node name="SmallBullet1" type="Node2D"]
+script = ExtResource("1_haiem")
