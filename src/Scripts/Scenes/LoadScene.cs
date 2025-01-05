@@ -1,15 +1,24 @@
 using Godot;
 using System;
 
-public partial class LoadScene : SceneBase
+public partial class LoadScene : ToplevelSceneBase
 {
-	// Called when the node enters the scene tree for the first time.
+	private AnimatedSprite2D digit1;
+	private AnimatedSprite2D digit2;
+	[Export] public float percentage = 0;
 	public override void _Ready()
 	{
+		digit1 = GetNode<AnimatedSprite2D>("Digit1");
+		digit2 = GetNode<AnimatedSprite2D>("Digit2");
+		base._Ready();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		var b1 = (int)(percentage % 10f);
+		var b10 = (int)(percentage % 100f - b1) / 10;
+		digit1.Frame = b10;
+		digit2.Frame = b1;
+		base._Process(delta);
 	}
 }

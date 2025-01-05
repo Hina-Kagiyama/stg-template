@@ -1,15 +1,27 @@
 using Godot;
 using System;
 
-public partial class TitleScene : SceneBase
+public partial class TitleScene : ToplevelSceneBase
 {
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		base._Ready();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("toggleMenu"))
+			ExitBtnPressed();
+		base._Process(delta);
+	}
+
+	public void NewStartBtnPressed() { }
+	public void ContinueBtnPressed() { }
+	public void MusicRoomBtnPressed() { }
+	public void StatisticsBtnPressed() { }
+	public void ReplayBtnPressed() { }
+	public void ExitBtnPressed()
+	{
+		father().ProgramExit();
 	}
 }
